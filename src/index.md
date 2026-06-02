@@ -3,4 +3,4 @@ layout: base.njk
 title: Thomas Lodato
 ---
 
-Hello world.
+Hello world!
