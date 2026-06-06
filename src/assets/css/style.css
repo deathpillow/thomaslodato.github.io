@@ -677,6 +677,7 @@ time {
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-6);
+  margin-bottom: var(--space-10);
 }
 
 .page-header h1 {
