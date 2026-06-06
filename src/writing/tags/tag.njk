@@ -1,0 +1,27 @@
+---
+pagination:
+  data: collections.writingTags
+  size: 1
+  alias: tag
+permalink: /writing/tags/{{ tag }}/
+layout: base.njk
+eleventyComputed:
+  title: "{{ tag }}"
+  description: "Posts tagged #{{ tag }} — Thomas Lodato"
+---
+
+<div class="page-header">
+  <h1 class="section-label">{{ tag }}</h1>
+  <a href="/writing/" class="home-more-link">← All writing</a>
+</div>
+
+<ul class="writing-list writing-list--index">
+  {% for post in collections[tag] | reverse %}
+  <li class="writing-list__item">
+    <a href="{{ post.url }}" class="writing-list__title">{{ post.data.title }}</a>
+    <div class="writing-list__meta">
+      <time class="writing-list__date" datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+    </div>
+  </li>
+  {% endfor %}
+</ul>

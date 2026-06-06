@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/deathpillow/thomaslodato.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.5"
+    "@11ty/eleventy": "^3.1.5",
+    "playwright": "^1.60.0"
   }
 }

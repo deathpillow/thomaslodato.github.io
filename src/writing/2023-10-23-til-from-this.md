@@ -1,0 +1,9 @@
+---
+layout: post.njk
+title: "TIL from this paper that although LLMs can translate text…"
+date: 2023-10-23
+tags: [imported, ai-at-work]
+---
+<p>TIL from <a href="https://arxiv.org/abs/2305.15425">this paper</a> that although LLMs can translate text from one language to another, the cost of doing so varies greatly, thereby making LLMs more costly within some languages because of how words are tokenized.</p>
+<img src="https://deptofthomas.micro.blog/uploads/2023/screenshot-2023-10-23-at-11.59.35am.png" width="600" height="369" alt="Screenshot of an academic paper that is titled: Language Model Tokenizers Introduce Unfairness Between Languages&quot;. The authors are:  Aleksandar Petrov, Emanuele La Malfa, Philip H.S. Torr, Adel Bibi. The abstract reads: Recent language models have shown impressive multilingual performance, even when not explicitly trained for it. Despite this, there are concerns about the quality of their outputs across different languages. In this paper, we show how disparity in the treatment of different languages arises at the tokenization stage, well before a model is even invoked. The same text translated into different languages can have drastically different tokenization lengths, with differences up to 15 times in some cases. These disparities persist even for tokenizers that are intentionally trained for multilingual support. Character-level and byte-level models also exhibit over 4 times the difference in the encoding length for some language pairs. This induces unfair treatment for some language communities in regard to the cost of accessing commercial language services, the processing time and latency, as well as the amount of content that can be provided as context to the models. Therefore, we make the case that we should train future language models using multilingually fair subword tokenizers. ">
+
