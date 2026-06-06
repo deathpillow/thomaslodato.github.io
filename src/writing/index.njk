@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: Writing
+description: Writing and notes by Thomas Lodato.
+---
+
+<h1>Writing</h1>
+
+{% if collections.writing and collections.writing.length > 0 %}
+<ul class="writing-list writing-list--index">
+  {% for post in collections.writing %}
+  <li class="writing-list__item">
+    <a href="{{ post.url }}" class="writing-list__title">{{ post.data.title }}</a>
+    <div class="writing-list__meta">
+      <time class="writing-list__date" datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+      {% if post.data.tags and post.data.tags.length > 0 %}
+      <a href="/writing/tags/{{ post.data.tags[0] }}/" class="tag">{{ post.data.tags[0] }}</a>
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="writing-list__empty">Posts coming soon.</p>
+{% endif %}

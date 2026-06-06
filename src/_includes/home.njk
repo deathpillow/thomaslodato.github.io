@@ -1,0 +1,49 @@
+---
+layout: base.njk
+---
+
+<div class="home-intro">
+  <h1 class="home-name">Thomas James Lodato</h1>
+  <p class="home-descriptor">Product lead. Building small business software in Portland.</p>
+</div>
+
+<hr>
+
+<section class="home-section" aria-label="Now">
+  <h2 class="section-label">Now</h2>
+  <div class="home-now">
+    {{ content | safe }}
+  </div>
+</section>
+
+<hr>
+
+<section class="home-section" aria-label="Writing">
+  <h2 class="section-label">Writing</h2>
+  {% if collections.writing and collections.writing.length > 0 %}
+  <ul class="writing-list">
+    {% for post in collections.writing | limit(5) %}
+    <li class="writing-list__item">
+      <a href="{{ post.url }}" class="writing-list__title">{{ post.data.title }}</a>
+      <time class="writing-list__date" datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="writing-list__empty">Posts coming soon.</p>
+  {% endif %}
+  <a href="/writing/" class="home-more-link">All writing →</a>
+</section>
+
+<hr>
+
+<section class="home-section" aria-label="Contact">
+  <h2 class="section-label">Contact</h2>
+  <p class="contact-links">
+    <a href="mailto:thomas.lodato@gmail.com">Email</a>
+    <span class="contact-sep">·</span>
+    <a href="https://github.com/deathpillow">GitHub</a>
+    <span class="contact-sep">·</span>
+    <a href="https://www.linkedin.com/in/thomaslodato">LinkedIn</a>
+  </p>
+</section>
