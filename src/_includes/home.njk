@@ -2,37 +2,43 @@
 layout: base.njk
 ---
 
-<div class="home-intro">
-  <h1 class="home-name">Thomas James Lodato</h1>
-  <p class="home-descriptor">{{ description }}</p>
-</div>
-
-<hr>
-
-<section class="home-section" aria-label="Now">
-  <h2 class="section-label">Now</h2>
-  <div class="home-now">
-    {{ content | safe }}
+<dl class="status-block">
+  <div class="status-row">
+    <dt class="status-label">Updated</dt>
+    <dd class="status-value">{{ site.lastUpdated }}</dd>
   </div>
-</section>
-
-<hr>
-
-<section class="home-section" aria-label="Writing">
-  <h2 class="section-label">Writing</h2>
-  {% if collections.writing and collections.writing.length > 0 %}
-  <ul class="writing-list">
-    {% for post in collections.writing | limit(5) %}
-    <li class="writing-list__item">
-      <a href="{{ post.url }}" class="writing-list__title">{{ post.data.title }}</a>
-      <time class="writing-list__date" datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
-    </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p class="writing-list__empty">Posts coming soon.</p>
-  {% endif %}
-  <a href="/writing/" class="home-more-link">All writing →</a>
-</section>
-
-<hr>
+  <div class="status-row">
+    <dt class="status-label">Being</dt>
+    <dd class="status-value">{{ status.being }}</dd>
+  </div>
+  <div class="status-row">
+    <dt class="status-label">Thinking</dt>
+    <dd class="status-value">{{ status.thinking }}</dd>
+  </div>
+  <div class="status-row">
+    <dt class="status-label">Building</dt>
+    <dd class="status-value">{{ status.building }}</dd>
+  </div>
+  <div class="status-row">
+    <dt class="status-label">Reading</dt>
+    <dd class="status-value">
+      {% for book in status.reading %}{{ book }}{% if not loop.last %}<br>{% endif %}{% endfor %}
+    </dd>
+  </div>
+  <div class="status-row status-row--section">
+    <dt class="status-label">Writing</dt>
+    <dd class="status-value status-value--list">
+      {% if collections.writing and collections.writing.length > 0 %}
+      <ul class="writing-list">
+        {% for post in collections.writing | limit(5) %}
+        <li class="writing-list__item">
+          <a href="{{ post.url }}" class="writing-list__title">{{ post.data.title }}</a>
+          <time class="writing-list__date" datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <a href="/writing/" class="home-more-link">All writing →</a>
+    </dd>
+  </div>
+</dl>
