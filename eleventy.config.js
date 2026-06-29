@@ -5,14 +5,17 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("writing", function(collectionApi) {
     return collectionApi
       .getFilteredByGlob("src/writing/**/*.md")
+      .filter(item => !item.data.draft)
       .sort((a, b) => b.date - a.date);
   });
 
   eleventyConfig.addCollection("writingTags", function(collectionApi) {
     const tags = new Set();
-    collectionApi.getFilteredByGlob("src/writing/**/*.md").forEach(item => {
-      (item.data.tags || []).forEach(tag => tags.add(tag));
-    });
+    collectionApi.getFilteredByGlob("src/writing/**/*.md")
+      .filter(item => !item.data.draft)
+      .forEach(item => {
+        (item.data.tags || []).forEach(tag => tags.add(tag));
+      });
     return [...tags].sort();
   });
 
