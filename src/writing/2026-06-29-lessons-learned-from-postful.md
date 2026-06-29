@@ -1,8 +1,9 @@
 ---
 title: "What Postful Taught Me"
 date: 2026-06-29
+draft: true
 tags: ["explorations", "building-in-public"]
-description: A retrospective on Postful, the social media scheduling tool I built and shut down: what broke, what I'd do differently, and what carried forward.
+description: A retrospective on Postful, the social media scheduling tool I built and shut down.
 ---
 
 We shut down Postful in Q2 2026, about fifteen months after we kicked it off. It wasn't a surprise ending, more like a decision that had been becoming obvious for a while and finally felt right to make official.
